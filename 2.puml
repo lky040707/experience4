@@ -1,0 +1,58 @@
+@startuml
+class com.example.second.ContactServiceImpl {
+- ContactDAO contactDAO
++ void addContact(Contact)
++ boolean deleteContact(int)
++ boolean updateContact(Contact)
++ List<Contact> getAllContacts()
+}
+class com.example.second.AddressBookUI {
+- Scanner scanner
+- ContactService contactService
++ void run()
+- void addContact()
+- void deleteContact()
+- void updateContact()
+- void viewContacts()
++ {static} void main(String[])
+}
+interface com.example.second.ContactDAO {
+~ void addContact(Contact)
+~ boolean deleteContact(int)
+~ boolean updateContact(Contact)
+~ List<Contact> getAllContacts()
+}
+class com.example.second.Contact {
+- int id
+- String name
+- String address
+- String phone
++ int getId()
++ void setId(int)
++ String getName()
++ void setName(String)
++ String getAddress()
++ void setAddress(String)
++ String getPhone()
++ void setPhone(String)
++ String toString()
+}
+interface com.example.second.ContactService {
+~ void addContact(Contact)
+~ boolean deleteContact(int)
+~ boolean updateContact(Contact)
+~ List<Contact> getAllContacts()
+}
+class com.example.second.ContactDAOImpl {
+- List<Contact> contacts
+- int nextId
++ void addContact(Contact)
++ boolean deleteContact(int)
++ boolean updateContact(Contact)
++ List<Contact> getAllContacts()
+}
+
+
+com.example.second.ContactService <|.. com.example.second.ContactServiceImpl
+com.example.second.ContactDAO <|.. com.example.second.ContactDAOImpl
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+class com.example.first.Client {
+- {static} String SERVER_ADDRESS
+- {static} int SERVER_PORT
++ {static} void main(String[])
+}
+class com.example.first.Server {
+- {static} int PORT
+- {static} Map<Integer,Contact> contacts
+- {static} int nextId
++ {static} void main(String[])
+}
+class com.example.first.Server$ClientHandler {
+- Socket socket
++ void run()
+}
+class com.example.first.Server$Contact {
+- int id
+- String name
+- String address
+- String phone
++ int getId()
++ String getName()
++ void setName(String)
++ String getAddress()
++ void setAddress(String)
++ String getPhone()
++ void setPhone(String)
+}
+
+
+com.example.first.Server +.. com.example.first.Server$ClientHandler
+com.example.first.Runnable <|.. com.example.first.Server$ClientHandler
+com.example.first.Server +.. com.example.first.Server$Contact
+@enduml
